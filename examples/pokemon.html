@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mainframe Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="../dist/mainframe.min.js" defer></script>
+</head>
+<body class="p-8">
+    <div class="pokemon-set">
+        <h1 class="text-lg font-bold mb-4">Pokemon API</h1>
+
+        <button>Load Pokemon</button>
+
+        <ul>
+            <template data-m-each="pokemon">
+                <li class="pokemon">
+                    <a data-m-href="url" data-m-text="name" class="text-blue-900 underline">Placeholder</a>
+                </li>
+                <script type="mainframe">
+                    assign("name", $results.name)
+                    assign("url", $results.url)
+                </script>
+            </template>
+        </ul>
+        <script type="mainframe">
+          on("click", "button", assign("data", json("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0")))
+          assign("results", "data.results")
+        </script>
+    </div>
+</body>
+</html>
