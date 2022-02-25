@@ -30,6 +30,21 @@
           assign("results", "data.results")
         </script>
     </div>
+    <div class="gallery-card">
+        <p class="flex">
+            <strong f-text="clicks" class="p4 center font-medium text-2xl">0</strong>
+        </p>
+        <div class="grid grid-cols-2 grid-flow-row gap-4">
+            <button class="px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-full shadow-sm">Add</button>
+            <button class="px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-full shadow-sm">Subtract</button>
+        </div>
+        <script type="mainframe">
+          assign("clicks", 0)
+          on("click", ".add", set("clicks", n => n + 1))
+          on("click", ".subtract", set("clicks", n => n - 1))
+        </script>
+    </div>
+
     <script>
         const events = new EventSource("/events")
         events.addEventListener("reload", e => {

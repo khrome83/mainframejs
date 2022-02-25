@@ -5,10 +5,8 @@ import actions, { Actions } from "./actions";
 
 type callback = (arg0: Actions) => void
 
-function createComponent(cb: callback = () => {}): Actions {
+function createComponent(cb: callback = () => {}) {
     cb(actions);
-
-    return actions
 }
 
 function Mainframe(selector: string, cb: callback) {
@@ -19,7 +17,7 @@ function Mainframe(selector: string, cb: callback) {
 }
 
 export default function(): void {
-    const apiKeys = `{${Object.keys(createComponent()).join(",")}}`
+    const apiKeys = `{${Object.keys(actions).join(",")}}`
 
     window['Mainframe'] = Mainframe
 
