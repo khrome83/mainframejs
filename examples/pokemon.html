@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mainframe Example</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module" src="../dist/mainframe.min.js" defer></script>
+    <script type="module" src="/mainframe.js" defer></script>
 </head>
 <body class="p-8">
-    <div class="pokemon-set">
+    <div class="pokemon-set test">
         <h1 class="text-lg font-bold mb-4">Pokemon API</h1>
 
         <button>Load Pokemon</button>
@@ -30,5 +30,11 @@
           assign("results", "data.results")
         </script>
     </div>
+    <script>
+        const events = new EventSource("/events")
+        events.addEventListener("reload", e => {
+            window.location.reload()
+        })
+    </script>
 </body>
 </html>

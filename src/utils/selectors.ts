@@ -1,18 +1,13 @@
-import isNode from "./isNode";
+type ActionSingleSelector = (selector: string, root?: HTMLElement) => Element | null;
 
-
-function $(selector: string | Node, root = document): Node | null {
-    if (isNode(selector)) {
-        return selector as Node
-    }
-    return root.querySelector(selector as string)
+const $: ActionSingleSelector = (selector, root = document.body) => {
+    return root.querySelector(selector)
 }
 
-function $$(selector: string | Node, root: Document = document): NodeListOf<Node> | Array<Node> {
-    if (isNode(selector)) {
-        return [selector as Node]
-    }
+type ActionMultiSelector = (selector: string, root?: HTMLElement) => NodeListOf<Element>;
+
+const $$: ActionMultiSelector = (selector, root = document.body) => {
     return root.querySelectorAll(selector as string)
 }
 
-export {$, $$}
+export {$, $$, ActionSingleSelector, ActionMultiSelector}

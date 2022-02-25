@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "esbuild src/index.ts --bundle --minify --outfile=dist/mainframe.min.js",
-    "dev": "esbuild src/index.ts --bundle --outfile=dist/mainframe.js && tsc --noEmit --watch src/index.ts"
+    "dev": "go run ."
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,6 @@
   "devDependencies": {
     "@types/node": "^17.0.19",
     "esbuild": "^0.14.23",
-    "typescript": "^4.5.5"
+    "typescript": "^4.7.0-dev.20220224"
   }
 }
