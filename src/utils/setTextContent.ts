@@ -1,3 +1,3 @@
-export default function (node: Node, text: string): void {
+export default function setTextContent(node: Node, text: string): void {
     node.textContent = text
 }
